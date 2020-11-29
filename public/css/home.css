@@ -17,3 +17,13 @@ body{
     width: 18rem; 
     margin: 15px auto;
 }
+
+.cardLinks{
+    text-decoration: none;
+    color: black;
+}
+
+.cardLinks:hover{
+    text-decoration: none;
+    color: black;
+}

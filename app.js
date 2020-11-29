@@ -50,6 +50,7 @@ const loginRoutes = require("./routes/login")
 const registerRoutes = require("./routes/register")
 const homeRoute = require("./routes/home")
 const profileRoute = require("./routes/profile")
+const voiceNoteRoute = require("./routes/voiceNotes")
 //------------------------------------------
 
 
@@ -58,6 +59,7 @@ app.use("/", homeRoute)
 app.use("/login", loginRoutes)
 app.use("/register", registerRoutes)
 app.use("/profile", profileRoute)
+app.use("/voiceNotes", voiceNoteRoute)
 
 //------------------------------------------
 
