@@ -1,100 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/home.css">
 </head>
+
 <body>
-<div class="homeHeader">
+  <div class="homeHeader">
     iCanHelp
-</div>
-<div style="text-align: center; padding-top: 10px; font-size: 1.5rem;">
+  </div>
+  <div style="text-align: center; padding-top: 10px; font-size: 1.5rem;">
     Welcome, <%=user.name %>
-</div>
-<div style="text-align: center; padding: 10px 0;">
-  <a href="/profile">
-    <button class="btn btn-primary">View Full Profile</button>
-  </a>
-</div>
-<div class="container">
+  </div>
+  <div style="text-align: center; padding: 10px 0;">
+    <a href="/profile">
+      <button class="btn btn-primary">View Full Profile</button>
+    </a>
+  </div>
+  <div class="container">
     <div class="row">
-        <div class="col-12 col-md-4">
-            <div class="card homeCards">
-                <div class="card-body">
-                  <h5 class="card-title">Sign Language Detection</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
+      <div class="col-12 col-md-4">
+        <a href="/signLanguageDetection" class="cardLinks">
+          <div class="card homeCards">
+            <div class="card-body">
+              <h5 class="card-title">Sign Language Detection</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card homeCards">
+          <div class="card-body">
+            <h5 class="card-title">Vision Based Navigation</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
         </div>
-        <div class="col-12 col-md-4">
-            <div class="card homeCards">
-                <div class="card-body">
-                  <h5 class="card-title">Vision Based Navigation</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card homeCards">
+          <div class="card-body">
+            <h5 class="card-title">Text To Speech</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
         </div>
-        <div class="col-12 col-md-4">
-            <div class="card homeCards">
-                <div class="card-body">
-                  <h5 class="card-title">Text To Speech</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-        </div>
+      </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-4">
-          <a href="/voiceNotes" class="cardLinks">
-            <div class="card homeCards">
-                <div class="card-body">
-                  <h5 class="card-title">Self Voice Notes</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-          </a>
+      <div class="col-12 col-md-4">
+        <a href="/voiceNotes" class="cardLinks">
+          <div class="card homeCards">
+            <div class="card-body">
+              <h5 class="card-title">Self Voice Notes</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card homeCards">
+          <div class="card-body">
+            <h5 class="card-title">Speech to Text</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
         </div>
-        <div class="col-12 col-md-4">
-            <div class="card homeCards">
-                <div class="card-body">
-                  <h5 class="card-title">Speech to Text</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card homeCards">
+          <div class="card-body">
+            <h5 class="card-title">Medication Reminder</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
         </div>
-        <div class="col-12 col-md-4">
-            <div class="card homeCards">
-                <div class="card-body">
-                  <h5 class="card-title">Medication Reminder</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
 
 </body>
+
 </html>
