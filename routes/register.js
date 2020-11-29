@@ -15,7 +15,13 @@ router.get("/", (req,res)=>{
 
 router.post("/", (req,res)=>{
     User.register(new User({
-        username: req.body.username
+        username: req.body.username,
+        year: req.body.year,
+        dept: req.body.department,
+        div: req.body.div,
+        rollNo: req.body.roll,
+        bloodGroup: req.body.bloodGroup,
+        name: req.body.name
     }),
     req.body.password, (err, user)=>{
         if(err){

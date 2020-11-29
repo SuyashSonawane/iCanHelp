@@ -7,10 +7,13 @@ var userSchema = new mongoose.Schema({
         type:String,
         unique:true
     },
-    password: String, 
-    name: String,
-    type: String,
-    email:String,
+    password: String,
+    name: String, 
+    rollNo: String,
+    year: String,
+    dept: String,
+    div: String,
+    bloodGroup: String,
     firstLogin: String,
     created: {type: Date, default: Date.now}
 })

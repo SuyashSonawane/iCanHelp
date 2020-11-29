@@ -3,7 +3,7 @@ const router = express.Router()
 const { isLoggedIn } = require("../auth")
 
 router.get("/", isLoggedIn, (req,res)=>{
-    res.send("Welcome, You're logged in!")
+    res.render("home", {user: req.user})
 })
 
 module.exports = router

@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Untitled</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body style="background-color: rgb(177, 237, 255);">
@@ -14,7 +16,7 @@
         <div class="login">
             <div class="login-screen">
                 <div class="app-title">
-                    <h1>Login</h1>
+                    Login
                 </div>
                 <div class="login-form">
                     <div class="control-group">
@@ -23,11 +25,18 @@
                     <div class="control-group">
                         <input type="password" class="login-field" value="" placeholder="password" name="password">
                         <label class="login-field-icon fui-lock" for="login-pass"></label></div>
-                    <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block">
+                    <input type="submit" value="Log in" class="loginBtn btn btn-primary btn-large btn-block">
     
                 </div>
             </div>
         </div>
     </form>
+    <div style="text-align: center;">
+        or 
+        <br><br>
+        <a href="/register">
+            <button class="btn btn-success" style="padding: 10px 35px;">Register</button>
+        </a>
+    </div>
 </body>
 </html>

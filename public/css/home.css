@@ -1,0 +1,19 @@
+.homeHeader{
+    padding: 20px 0;
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: Rubik;
+    color: white;
+    display: block;
+    text-align: center;
+    background-color: rgb(68, 202, 255);
+}
+
+body{
+    font-family: Rubik;
+}
+
+.homeCards{
+    width: 18rem; 
+    margin: 15px auto;
+}

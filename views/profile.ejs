@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <div class="homeHeader">
+        iCanHelp
+    </div>
+    <div class="container">
+        <div class="row mt-5 text-left">
+            <div class="col-md-6">
+                <img class="img-responsive" src="/img/blank-avatar.jpg" alt="userimage" srcset="" style="max-height: 250px;">
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <p>Name : <%=user.name%></p>
+                <p>
+                    Blood Type : <%=user.bloodGroup%>
+                </p>
+                <p>
+                    Year : <%=user.year%>
+                </p>
+                <p>
+                    Department : <%=user.dept%>
+                </p>
+                <p>
+                    Division : <%=user.div%>
+                </p>
+                <p>
+                    Roll No. : <%=user.rollNo%>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

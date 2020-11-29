@@ -12,7 +12,7 @@ var passportLocalMongoose = require('passport-local-mongoose'),
     var app = express();
     var router = express.Router()
 
-//-------------------------------------------------
+//-----------------MONGODB-----------------------
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/SERVER');
 var User     = require("./models/userSchema")
 //-------------------------------------------------
@@ -24,7 +24,7 @@ app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: true}))
 //-------------------------------------------------
 
-//--------------Passport-------------------------------------------
+//--------------Passport(auth)-------------------------------------------
 app.use(require('express-session')({
     secret: "secret",
     resave: false,
@@ -49,12 +49,16 @@ passport.deserializeUser(User.deserializeUser())
 const loginRoutes = require("./routes/login")
 const registerRoutes = require("./routes/register")
 const homeRoute = require("./routes/home")
+const profileRoute = require("./routes/profile")
 //------------------------------------------
 
+
 //---------------Use Routes-----------------
+app.use("/", homeRoute)
 app.use("/login", loginRoutes)
 app.use("/register", registerRoutes)
-app.use("/", homeRoute)
+app.use("/profile", profileRoute)
+
 //------------------------------------------
 
 const port = process.env.PORT || 8000;
