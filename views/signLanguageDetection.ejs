@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Detection</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/signLanguageDetection.css">
+</head>
+
+<body>
+    <div class="homeHeader">
+        iCanHelp
+    </div>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-md-12" style="display: flex;justify-content: center;">
+                <video autoplay="true" id="videoElement"></video>
+            </div>
+            <div class="col-md-12 text-center mt-5">
+                <button type="button" class="btn" id="op-btn">Start</button>
+                <!-- <button style="width: 100px;">Start</button> -->
+                <h1 id="data"></h1>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.js"></script>
+<script src="/js/signLanguageDetection.js"></script>
+
+</html>
