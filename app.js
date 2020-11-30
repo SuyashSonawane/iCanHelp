@@ -13,7 +13,9 @@ var app = express();
 var router = express.Router()
 
 //-----------------MONGODB-----------------------
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/SERVER');
+//mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/SERVER');
+//-----------UN-COMMNENT THE Above line, and delete the line below if you want to use MongoAtlas Cloud Database
+mongoose.connect('mongodb://localhost/iCanHelp');
 var User = require("./models/userSchema")
 //-------------------------------------------------
 
