@@ -15,22 +15,43 @@
     <div class="homeHeader">
         iCanHelp
     </div>
-    <div class="recContainer">
-        <div id="controls">
-            <button id="recordButton">Record</button>
-            <button id="pauseButton" disabled>Pause</button>
-            <button id="stopButton" disabled>Stop</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="recContainer">
+                    <strong>Record a voice note</strong>
+                    <div id="controls">
+                        <button id="recordButton">Record</button>
+                        <button id="pauseButton" disabled>Pause</button>
+                        <button id="stopButton" disabled>Stop</button> 
+                    </div>
+                    <div id="uploading"></div>
+                    <p>Recorded Audio:</p>
+                    <ol id="recordingsList"></ol>
+                    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+                    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+                    <script src="/js/recordingAudio.js"></script>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="yourRecContainer">
+                    <strong>Your recordings:</strong><br><br>
+                    <div>
+                        <%  reverseArray = notesArray.reverse()
+                            reverseArray.forEach(function(note){ %>
+                            <%=note.voiceNoteName%></br>
+                            <audio controls>
+                                <source src="<%=note.voiceNoteLink%>" type="audio/ogg">
+                                Your browser does not support the audio tag.
+                            </audio>
+                            <br>
+                        <% }) %>
+                    </div>  
+                </div>
+                
+            </div>
         </div>
-        <div id="formats">Format: start recording to see sample rate</div>
-        <p><strong>Recordings:</strong></p>
-        <ol id="recordingsList"></ol>
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
-        <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
-        <script src="/js/recordingAudio.js"></script>
     </div>
-
-
 </body>
-
 </html>

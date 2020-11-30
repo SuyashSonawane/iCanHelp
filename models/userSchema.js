@@ -14,6 +14,7 @@ var userSchema = new mongoose.Schema({
     dept: String,
     div: String,
     bloodGroup: String,
+    voiceNotes: Array,
     firstLogin: String,
     created: {type: Date, default: Date.now}
 })

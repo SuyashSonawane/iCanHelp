@@ -11,14 +11,26 @@ a:visited {
   color: #8d75a3;
 }
 
+.body{
+ font-family: Rubik;
+}
+
 .recContainer {
 	line-height: 1.5;
-	font-family: sans-serif;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color:black;
 	margin:2em;
 }
+
+.yourRecContainer {
+	line-height: 1.5;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color:black;
+	margin:2em;
+}
+
 
 h1 {
 	text-decoration: underline red;

@@ -1,3 +1,4 @@
+
 URL = window.URL || window.webkitURL;
 
 var gumStream; 						//stream from getUserMedia()
@@ -11,6 +12,21 @@ var audioContext //audio context to help us record
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
 var pauseButton = document.getElementById("pauseButton");
+
+var firebaseConfig = {
+	apiKey: "AIzaSyBwJ-gbKQZBQ6TkDhxYB-uWwfOOMkZBm_Q",
+	authDomain: "campusmate-v1.firebaseapp.com",
+	databaseURL: "https://campusmate-v1.firebaseio.com",
+	projectId: "campusmate-v1",
+	storageBucket: "campusmate-v1.appspot.com",
+	messagingSenderId: "130311153720",
+	appId: "1:130311153720:web:4974d7492c98721fccdecd",
+	measurementId: "G-SVBT8QZPQN"
+  };
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	console.log(firebase);
+
 
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
@@ -50,8 +66,6 @@ function startRecording() {
 		*/
 		audioContext = new AudioContext();
 
-		//update the format 
-		document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
 
 		/*  assign to gumStream for later use  */
 		gumStream = stream;
@@ -111,56 +125,89 @@ function stopRecording() {
 
 	//create the wav blob and pass it on to createDownloadLink
 	rec.exportWAV(createDownloadLink);
+	rec.exportWAV(uploadToStorage);
 }
 
 function createDownloadLink(blob) {
-	
 	var url = URL.createObjectURL(blob);
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
-	var link = document.createElement('a');
 
 	//name of .wav file to use during upload and download (without extendion)
-	var filename = new Date().toISOString();
+	dateNow = new Date().toString() 
+	const filename = dateNow.replace("GMT+0530 (India Standard Time)", "");
 
 	//add controls to the <audio> element
 	au.controls = true;
 	au.src = url;
 
-	//save to disk link
-	link.href = url;
-	link.download = filename+".wav"; //download forces the browser to donwload the file using the  filename
-	link.innerHTML = "Save to disk";
 
 	//add the new audio element to li
 	li.appendChild(au);
 	
 	//add the filename to the li
-	li.appendChild(document.createTextNode(filename+".wav "))
+	li.appendChild(document.createTextNode(filename))
 
 	//add the save to disk link to li
-	li.appendChild(link);
-	
-	//upload link
-	var upload = document.createElement('a');
-	upload.href="#";
-	upload.innerHTML = "Upload";
-	upload.addEventListener("click", function(event){
-		  var xhr=new XMLHttpRequest();
-		  xhr.onload=function(e) {
-		      if(this.readyState === 4) {
-		          console.log("Server returned: ",e.target.responseText);
-		      }
-		  };
-		  var fd=new FormData();
-		  fd.append("audio_data",blob, filename);
-		  xhr.open("POST","upload.php",true);
-		  xhr.send(fd);
-	})
-	li.appendChild(document.createTextNode (" "))//add a space in between
-	li.appendChild(upload)//add the upload link to li
-
 	//add the li element to the ol
 	recordingsList.appendChild(li);
 }
+
+uploadToStorage = (blob) => {
+	
+	var url = URL.createObjectURL(blob);
+	console.log(url)
+
+	var div = document.getElementById("uploading")
+	div.innerHTML = "Uploading audio to database...."
+
+	getFileBlob(url, blobs =>{
+		recordButton.disabled = true
+		pauseButton.disabled = true
+		stopButton.disabled = true
+
+		const ref = firebase.storage().ref();
+		const file = blobs
+		//const name = +new Date() + "-" + file.name;
+		dateNow = new Date().toString() 
+		const name = dateNow.replace("GMT+0530 (India Standard Time)", "");
+		const task = ref.child(name).put(file);
+		task
+		  .then(snapshot => snapshot.ref.getDownloadURL())
+		  .then(url=> {
+			console.log(url);
+			dateNow = new Date().toString() 
+			const name = dateNow.replace("GMT+0530 (India Standard Time)", "");
+			console.log(name)
+			fetch('/voiceNotes', {
+			method: 'POST', // or 'PUT'
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify([{"voiceNoteLink": url,
+								   "voiceNoteName": name}
+								])
+			})
+
+			recordButton.disabled = false
+			pauseButton.disabled = true
+			stopButton.disabled = true
+			div.innerHTML = " "
+		  })
+
+		  .catch(console.error);
+	})
+
+
+}
+
+var getFileBlob = function (url, cb) {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url);
+	xhr.responseType = "blob";
+	xhr.addEventListener('load', function() {
+	  cb(xhr.response);
+	});
+	xhr.send();
+  };
 
