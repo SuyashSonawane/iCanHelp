@@ -16,12 +16,15 @@ router.get("/", (req,res)=>{
 router.post("/", (req,res)=>{
     User.register(new User({
         username: req.body.username,
-        year: req.body.year,
-        dept: req.body.department,
-        div: req.body.div,
-        rollNo: req.body.roll,
+        name: req.body.name,
+        age: req.body.age,
+        address: req.body.address,
+        gender:req.body.gender,
+        emergencyNo: req.body.emergencyNo,
+        contactNo: req.body.contactNo,
+        doctor: req.body.doctor,
+        medicalHistory: req.body.medicalHistory,
         bloodGroup: req.body.bloodGroup,
-        name: req.body.name
     }),
     req.body.password, (err, user)=>{
         if(err){

@@ -52,6 +52,7 @@ const homeRoute = require("./routes/home")
 const profileRoute = require("./routes/profile")
 const voiceNoteRoute = require("./routes/voiceNotes")
 const signLanguageDetection = require("./routes/signLanguageDetection")
+const updateProfileRoute = require("./routes/updateProfile")
 //------------------------------------------
 
 
@@ -62,10 +63,17 @@ app.use("/register", registerRoutes)
 app.use("/profile", profileRoute)
 app.use("/voiceNotes", voiceNoteRoute)
 app.use("/signLanguageDetection", signLanguageDetection)
+app.use("/updateProfile", updateProfileRoute)
 
+
+app.get("/logout", function(req,res){
+    req.logout()
+    res.redirect("/")
+})
 //------------------------------------------
 
 const port = process.env.PORT || 8000;
 app.listen(port), () => {
     console.log("Server running on localhost")
 }
+

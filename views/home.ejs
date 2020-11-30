@@ -13,8 +13,9 @@
 
 <body>
   <div class="homeHeader">
-    iCanHelp
+    <a href="/" class="headerLink">iCanHelp</a>
   </div>
+
   <div style="text-align: center; padding-top: 10px; font-size: 1.5rem;">
     Welcome, <%=user.name %>
   </div>
@@ -22,6 +23,11 @@
     <a href="/profile">
       <button class="btn btn-primary">View Full Profile</button>
     </a>
+    <span>
+      <a href="/logout">
+        <button class="btn btn-danger"><ion-icon name="log-out-outline" style="transform: scale(1.5);"></ion-icon></button>
+      </a>
+    </span>
   </div>
   <div class="container">
     <div class="row">
@@ -106,6 +112,8 @@
     </div>
   </div>
 
+
+  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
 
 </html>

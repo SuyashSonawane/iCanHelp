@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/Contact-Form-Clean.css"
 </head>
 <body>
     <div class="contact-clean">
-        <form method="post" action = "/register">
-            <H3 class="text-center">Register</H3>
+        <form method="post" action = "/updateProfile">
+            <H3 class="text-center">Update Profile</H3>
             <p style="margin-bottom: 3px;margin-top: -2px;">Name :</p>
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="Name" style="margin-bottom: -18px;">
+                <input value="<%=user.name%>" class="form-control" type="text" name="name" placeholder="Name" style="margin-bottom: -18px;">
             </div>
             <br>
             <p style="margin-bottom: 3px;margin-top: -2px;">Age&nbsp;</p>
             <div class="form-group">
-                <input class="form-control" type="text" name="age" placeholder="Age" style="margin-bottom: -2px;">
+                <input value="<%=user.age%>" class="form-control" type="text" name="age" placeholder="Age" style="margin-bottom: -2px;">
             </div>
 
             <p style="margin-bottom: 3px;margin-top: -2px;">Gender</p>
@@ -31,18 +33,18 @@
 
             <p style="margin-bottom: 3px;margin-top: -2px;">Address&nbsp;</p>
             <div class="form-group">
-                <input class="form-control" type="text" name="address" placeholder="Address" style="margin-bottom: -2px;">
+                <input value="<%=user.address%>" class="form-control" type="text" name="address" placeholder="Address" style="margin-bottom: -2px;">
             </div>
             <br>
 
             <p style="margin-bottom: 3px;margin-top: -2px;">Contact No.&nbsp;</p>
             <div class="form-group">
-                <input class="form-control" type="text" name="contactNo" placeholder="Contact No." style="margin-bottom: -2px;">
+                <input value="<%=user.contactNo%>" class="form-control" type="text" name="contactNo" placeholder="contactNo" style="margin-bottom: -2px;">
             </div>
   
 
             <p style="margin-bottom: 3px;margin-top: -2px;">Medical History:</p>
-            &nbsp;&nbsp; <input name="medicalHistory" type = "checkbox"  value="Sight Disorder">&nbsp; Sight Disorder <br>
+            &nbsp;&nbsp; <input name="medicalHistory" type = "checkbox"  value="Sight Disorder" checked>&nbsp; Sight Disorder <br>
             &nbsp;&nbsp; <input name="medicalHistory" type = "checkbox"  value="Speed Disorder">&nbsp; Speech Disorder <br>
             &nbsp;&nbsp; <input name="medicalHistory" type = "checkbox"  value="Alzheimer's">&nbsp; Alzheimer's <br>
             <br>
@@ -59,25 +61,21 @@
             <br>
             <p style="margin-bottom: 3px;margin-top: -2px;">Family Doctor Name&nbsp;</p>
             <div class="form-group">
-                <input class="form-control" type="text" name="doctor" placeholder="Family DOctor Name" style="margin-bottom: -2px;">
+                <input value="<%=user.doctor%>" class="form-control" type="text" name="doctor" placeholder="Family DOctor Name" style="margin-bottom: -2px;">
             </div>
             
             <br>
             <p style="margin-bottom: 3px;margin-top: -2px;">Emergency Contact No.&nbsp;</p>
             <div class="form-group">
-                <input class="form-control" type="text" name="emergencyNo" placeholder="Emergency Contact No." style="margin-bottom: -2px;">
+                <input value="<%=user.emergencyNo%>" class="form-control" type="text" name="emergencyNo" placeholder="Emergency Contact No." style="margin-bottom: -2px;">
             </div>
 
-            
-            <p style="margin-bottom: 3px;margin-top: 31px;">Email (username)</p>
-            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Email" style="margin-bottom: -18px;">
-            <p style="margin-bottom: 3px;margin-top: 31px;">Login Password</p>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Set Login Password" style="margin-bottom: -18px;"></div>
             <button class="btn btn-primary d-flex mx-auto" type="submit" style="margin-top: 49px;margin-bottom: -13px;border: none;">
-                Create Your Account
+                Update Your Information
             </button>
-</div>
+        </div>
     </form>
     </div>
+<script src="/updateProfilePhoto.js"></script>    
 </body>
 </html>

@@ -9,13 +9,16 @@
     background-color: rgb(68, 202, 255);
 }
 
-body{
-    font-family: Rubik;
-}
-
 .homeCards{
     width: 18rem; 
     margin: 15px auto;
+}
+
+
+
+.cardLinks:hover{
+    text-decoration: none;
+    color: black;
 }
 
 .cardLinks{
@@ -23,7 +26,17 @@ body{
     color: black;
 }
 
-.cardLinks:hover{
-    text-decoration: none;
-    color: black;
+.headerLink{
+        text-decoration: none;
+        color: white;
 }
+
+.headerLink:hover{
+    text-decoration: none;
+    color: white;
+}
+
+body{
+    font-family: Rubik;
+}
+

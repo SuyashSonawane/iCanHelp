@@ -8,37 +8,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
     <div class="homeHeader">
-        iCanHelp
+        <a href="/" class="headerLink">iCanHelp</a>
     </div>
+
     <div class="container">
         <div class="row mt-5 text-left">
             <div class="col-md-6">
-                <img class="img-responsive" src="/img/blank-avatar.jpg" alt="userimage" srcset="" style="max-height: 250px;">
+                <% if (user.profilePhoto != null){ %>
+                    <img class="img-responsive" src="<%=user.profilePhoto%>" alt="userimage" srcset="" style="max-height: 250px; max-width: 250px; object-fit: cover;">
+                <% }
+                else { %>
+                    <img class="img-responsive" src="/img/blank-avatar.jpg" alt="userimage" srcset="" style="max-height: 250px; max-width: 250px; object-fit: cover;">  
+                <% } %>
             </div>
         </div>
+        <form action="/updateProfile/photo" method="POST">
+            <label for="photo" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Update Profile Photo
+            </label>
+            <input id='photo' type="file" oninput="uploadImage()"/>
+        </form>
+
         <div class="row mt-5">
             <div class="col-md-12">
                 <p>Name : <%=user.name%></p>
-                <p>
-                    Blood Type : <%=user.bloodGroup%>
-                </p>
-                <p>
-                    Year : <%=user.year%>
-                </p>
-                <p>
-                    Department : <%=user.dept%>
-                </p>
-                <p>
-                    Division : <%=user.div%>
-                </p>
-                <p>
-                    Roll No. : <%=user.rollNo%>
-                </p>
+                <p>Age: <%=user.age%> </p>
+                <p>Gender: <%=user.gender%> </p>
+                <p>Address: <%=user.address%> </p>
+                <p>Contact Number: <%=user.contactNo%> </p>
+                <p>Blood Group: <%=user.bloodGroup%> </p>
+                <p>Emergeny Contact : <%=user.emergencyNo%> </p>
+                <hr>
+
+                <p>Medical History:</p>
+                <% user.medicalHistory.forEach(function(disorder){ %>
+                    <li><%=disorder%></li>
+                <% }) %>
+                <br>
+                <p>Doctor: <%=user.doctor%> </p>
+
             </div>
         </div>
     </div>
+
+    <div style="text-align: center; margin-bottom: 40px;">
+        <a href="/updateProfile">
+            <button class="btn btn-primary">Update Profile</button>
+        </a>
+        <a href="/profile/delete">
+            <button onclick="return confirm('Are you sure you want to delete your account permanently?')" class="btn btn-danger">Delete Profile</button>
+        </a>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+    <script src="/js/updateProfilePhoto.js"></script>
 </body>
 </html>

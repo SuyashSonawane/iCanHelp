@@ -13,4 +13,15 @@ router.get("/", isLoggedIn, (req,res)=> {
     })
 })
 
+router.get("/delete", isLoggedIn, (req,res)=>{
+    User.findOneAndDelete({username:req.user.username}, (err, deleted)=>{
+        if(err){
+            console.log(err)
+        } else{
+            console.log("Deleted Profile Successfully")
+            res.redirect('/')
+        }
+    })
+})
+
 module.exports = router
