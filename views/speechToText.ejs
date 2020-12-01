@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+    <style>
+        .cnt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+
+        #output {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homeHeader">
+        <a href="/" class="headerLink">iCanHelp</a>
+    </div>
+    <p class="text-center m-5">Click on the below button and speak something...</p>
+    <div class="cnt">
+        <button type="button" id="btn" onclick="runSpeechRecognition()">Speech to Text</button>
+    </div>
+    <div class="cnt m-5">
+        <span id="action"></span>
+        <div id="output" class="hide"></div>
+
+    </div>
+</body>
+<script src="/js/speechToText.js"></script>
+
+</html>
