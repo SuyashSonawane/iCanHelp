@@ -22,8 +22,8 @@ router.get("/", isLoggedIn, (req,res)=>{
 })
 
 router.post("/", isLoggedIn, (req,res)=>{
-    filter = {username: req.user.username}
-    update = {
+    const filter = {username: req.user.username}
+    const update = {
         name: req.body.name,
         age: req.body.age,
         address: req.body.address,
@@ -47,7 +47,6 @@ router.post("/", isLoggedIn, (req,res)=>{
 router.post("/photo", isLoggedIn, (req,res)=>{
     const filter = {username: req.user.username}
     const update = {profilePhoto: req.body.profilePhoto}
-    console.log("UPDATE : " +update)
     User.findOneAndUpdate(filter, update, {upsert:true}, (err, update)=>{
         if(err){console.log(err)}
         else{

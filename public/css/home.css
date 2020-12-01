@@ -12,6 +12,9 @@
 .homeCards{
     width: 18rem; 
     margin: 15px auto;
+    -webkit-box-shadow: 7px 8px 8px -3px rgba(0,0,0,0.13);
+    -moz-box-shadow: 7px 8px 8px -3px rgba(0,0,0,0.13);
+    box-shadow: 7px 8px 8px -3px rgba(0,0,0,0.13)
 }
 
 

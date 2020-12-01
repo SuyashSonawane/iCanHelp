@@ -14,8 +14,12 @@ var router = express.Router()
 
 //-----------------MONGODB-----------------------
 //mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/SERVER');
-//-----------UN-COMMNENT THE Above line, and delete the line below if you want to use MongoAtlas Cloud Database
-mongoose.connect('mongodb://localhost/iCanHelp');
+mongoose.connect('mongodb://localhost/iCanHelp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+});
 var User = require("./models/userSchema")
 //-------------------------------------------------
 
@@ -75,7 +79,7 @@ app.get("/logout", function(req,res){
 //------------------------------------------
 
 const port = process.env.PORT || 8000;
-app.listen(port), () => {
+app.listen(port, () => {
     console.log("Server running on localhost")
-}
+})
 
