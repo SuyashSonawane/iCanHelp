@@ -58,7 +58,9 @@ const homeRoute = require("./routes/home")
 const profileRoute = require("./routes/profile")
 const voiceNoteRoute = require("./routes/voiceNotes")
 const signLanguageDetection = require("./routes/signLanguageDetection")
+const textToSpeech = require("./routes/textToSpeech")
 const updateProfileRoute = require("./routes/updateProfile")
+const speechToText = require("./routes/speechToText")
 //------------------------------------------
 
 
@@ -69,10 +71,12 @@ app.use("/register", registerRoutes)
 app.use("/profile", profileRoute)
 app.use("/voiceNotes", voiceNoteRoute)
 app.use("/signLanguageDetection", signLanguageDetection)
+app.use("/textToSpeech", textToSpeech)
+app.use("/speechToText", speechToText)
 app.use("/updateProfile", updateProfileRoute)
 
 
-app.get("/logout", function(req,res){
+app.get("/logout", function (req, res) {
     req.logout()
     res.redirect("/")
 })

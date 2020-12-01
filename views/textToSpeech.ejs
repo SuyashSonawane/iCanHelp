@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextToSpeech</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/textToSpeech.css">
+</head>
+
+<body>
+    <div class="homeHeader">
+        <a href="/" class="headerLink">iCanHelp</a>
+    </div>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-md-12" style="display: flex;justify-content: center;">
+                <video autoplay="true" id="videoElement" width="350px"></video>
+                <div class="loader">Loading...</div>
+            </div>
+            <div class="col-md-12 text-center mt-5">
+                <button onclick="convert()" class="btn btn-primary d-flex mx-auto" id="cap-btn">Capture Image</button>
+                <br>
+                <canvas id="canvas"></canvas>
+                <h1 id="printresult"></h1>
+                <button onclick="speak()" class="btn btn-primary " id="speak">Speak</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.js"></script>
+<script src="/js/textToSpeech.js"></script>
+
+</html>
