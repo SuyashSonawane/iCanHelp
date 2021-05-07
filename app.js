@@ -13,13 +13,13 @@ var app = express();
 var router = express.Router()
 
 //-----------------MONGODB-----------------------
-//mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/SERVER');
-mongoose.connect('mongodb://localhost/iCanHelp', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-});
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/SERVER');
+//mongoose.connect('mongodb://localhost/iCanHelp', {
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true,
+//    useCreateIndex: true,
+//    useFindAndModify: false,
+//});
 var User = require("./models/userSchema")
 //-------------------------------------------------
 

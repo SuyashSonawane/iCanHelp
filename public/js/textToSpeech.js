@@ -24,29 +24,54 @@ function convert() {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-    let data = canvas.toDataURL().split(",")[1]
+    let data = canvas.toDataURL()
     video.style.display = "none"
     document.querySelector(".loader").style.display = "block"
     button.disabled = true
     //POST request with body equal on data in JSON format
-    fetch('http://localhost:5000/api', {
+    var myHeaders = new Headers();
+    myHeaders.append("apikey", "dfa039fec188957");
+
+    var formdata = new FormData();
+    formdata.append("language", "eng");
+    formdata.append("isOverlayRequired", "false");
+    formdata.append("iscreatesearchablepdf", "false");
+    formdata.append("issearchablepdfhidetextlayer", "false");
+    formdata.append("base64Image", data)
+
+    var requestOptions = {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ data: data }),
-    })
-        .then((response) => response.json())
-        //Then with the data from the response in JSON...
-        .then((data) => {
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+    };
 
-            showResults(data)
-
+    fetch("https://api.ocr.space/parse/image", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            showResults(result)
+            // console.log(result)
         })
-        //Then with the error genereted...
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        .catch(error => console.log('error', error));
+
+    // fetch('http://localhost:5000/api', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ data: data }),
+    // })
+    //     .then((response) => response.json())
+    //     //Then with the data from the response in JSON...
+    //     .then((data) => {
+
+    //         showResults(data)
+
+    //     })
+    //     //Then with the error genereted...
+    //     .catch((error) => {
+    //         console.error('Error:', error);
+    //     });
 
     // requestAnimationFrame(convert)
 }
@@ -59,9 +84,9 @@ function showResults(data) {
     video.style.display = "block"
 
     console.log('Success:', data);
-    if (data.trim().length > 0) {
-        document.getElementById("printresult").innerHTML = data
-        Sdata = data
+    if (!data.IsErroredOnProcessing) {
+        document.getElementById("printresult").innerHTML = data.ParsedResults[0].ParsedText
+        Sdata = data.ParsedResults[0].ParsedText
         speakBtn.style.display = "initial"
     }
     else
