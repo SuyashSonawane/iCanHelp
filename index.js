@@ -13,7 +13,7 @@ var app = express();
 var router = express.Router()
 
 //-----------------MONGODB-----------------------
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/SERVER');
+mongoose.connect(process.env.MONGODB_URL || "mongodb+srv://aditya:qwerty12345@cluster0.fapof.mongodb.net/ICANHELP?retryWrites=true&w=majority");
 //mongoose.connect('mongodb://localhost/iCanHelp', {
 //    useNewUrlParser: true,
 //    useUnifiedTopology: true,
@@ -86,4 +86,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("Server running on port 8000")
 })
-
